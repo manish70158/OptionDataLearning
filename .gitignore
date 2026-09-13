@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Web app cache
+web/cache.db
+
+# Frontend build artifacts
+web/frontend/node_modules/
+web/frontend/dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Claude Code local config
+.claude/
+
+# Backend log files
+/tmp/web-backend.log
+*.log

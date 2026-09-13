@@ -1,0 +1,153 @@
+vix_accuracy,nifty_day,rank,fii_view,pro_view,count,percentage,top_to_down,ttd_pct,down_to_up,dtu_pct,avg_range_pct,avg_oc_pct,avg_range_ttd,avg_oc_ttd,avg_range_dtu,avg_oc_dtu
+Overestimated,Green,1,Neutral,Neutral,78,12.7,0,0.0,78,100.0,0.9,0.4,0.0,0.0,0.9,0.4
+Overestimated,Green,2,Neutral,Bearish,45,7.33,0,0.0,45,100.0,0.95,0.49,0.0,0.0,0.95,0.49
+Overestimated,Green,3,Neutral,Strong Bullish,44,7.17,0,0.0,44,100.0,0.84,0.38,0.0,0.0,0.84,0.38
+Overestimated,Green,4,Bullish,Strong Bullish,44,7.17,0,0.0,44,100.0,0.74,0.34,0.0,0.0,0.74,0.34
+Overestimated,Green,5,Bearish,Strong Bearish,39,6.35,0,0.0,39,100.0,0.89,0.42,0.0,0.0,0.89,0.42
+Overestimated,Green,6,Neutral,Bullish,38,6.19,0,0.0,38,100.0,0.85,0.42,0.0,0.0,0.85,0.42
+Overestimated,Green,7,Strong Bullish,Strong Bullish,36,5.86,0,0.0,36,100.0,0.76,0.35,0.0,0.0,0.76,0.35
+Overestimated,Green,8,Neutral,Strong Bearish,31,5.05,0,0.0,31,100.0,0.86,0.44,0.0,0.0,0.86,0.44
+Overestimated,Green,9,Strong Bearish,Strong Bearish,27,4.4,0,0.0,27,100.0,0.87,0.44,0.0,0.0,0.87,0.44
+Overestimated,Green,10,Mildly Bearish,Strong Bearish,22,3.58,0,0.0,22,100.0,0.86,0.39,0.0,0.0,0.86,0.39
+Overestimated,Green,11,Neutral,Mildly Bullish,16,2.61,0,0.0,16,100.0,0.88,0.44,0.0,0.0,0.88,0.44
+Overestimated,Green,12,Neutral,Mildly Bearish,16,2.61,0,0.0,16,100.0,0.95,0.48,0.0,0.0,0.95,0.48
+Overestimated,Green,13,Mildly Bullish,Neutral,16,2.61,0,0.0,16,100.0,0.8,0.35,0.0,0.0,0.8,0.35
+Overestimated,Green,14,Bullish,Neutral,13,2.12,0,0.0,13,100.0,0.87,0.43,0.0,0.0,0.87,0.43
+Overestimated,Green,15,Bullish,Bullish,12,1.95,0,0.0,12,100.0,0.82,0.4,0.0,0.0,0.82,0.4
+Overestimated,Green,16,Bearish,Bearish,11,1.79,0,0.0,11,100.0,0.89,0.21,0.0,0.0,0.89,0.21
+Overestimated,Green,17,Mildly Bearish,Mildly Bearish,10,1.63,0,0.0,10,100.0,0.75,0.4,0.0,0.0,0.75,0.4
+Overestimated,Green,18,Mildly Bearish,Neutral,10,1.63,0,0.0,10,100.0,0.89,0.39,0.0,0.0,0.89,0.39
+Overestimated,Green,19,Mildly Bullish,Strong Bullish,10,1.63,0,0.0,10,100.0,0.75,0.36,0.0,0.0,0.75,0.36
+Overestimated,Green,20,Mildly Bearish,Bearish,8,1.3,0,0.0,8,100.0,0.89,0.34,0.0,0.0,0.89,0.34
+Overestimated,Green,21,Bearish,Neutral,7,1.14,0,0.0,7,100.0,1.03,0.75,0.0,0.0,1.03,0.75
+Overestimated,Green,22,Mildly Bullish,Bullish,7,1.14,0,0.0,7,100.0,0.8,0.42,0.0,0.0,0.8,0.42
+Overestimated,Green,23,Bullish,Strong Bearish,6,0.98,0,0.0,6,100.0,0.72,0.27,0.0,0.0,0.72,0.27
+Overestimated,Green,24,Mildly Bullish,Mildly Bullish,6,0.98,0,0.0,6,100.0,0.96,0.52,0.0,0.0,0.96,0.52
+Overestimated,Green,25,Mildly Bullish,Strong Bearish,5,0.81,0,0.0,5,100.0,0.69,0.3,0.0,0.0,0.69,0.3
+Overestimated,Green,26,Mildly Bearish,Strong Bullish,5,0.81,0,0.0,5,100.0,0.92,0.36,0.0,0.0,0.92,0.36
+Overestimated,Green,27,Bearish,Bullish,4,0.65,0,0.0,4,100.0,0.83,0.36,0.0,0.0,0.83,0.36
+Overestimated,Green,28,Strong Bearish,Bearish,4,0.65,0,0.0,4,100.0,0.85,0.32,0.0,0.0,0.85,0.32
+Overestimated,Green,29,Strong Bullish,Bullish,4,0.65,0,0.0,4,100.0,0.82,0.38,0.0,0.0,0.82,0.38
+Overestimated,Green,30,Bearish,Strong Bullish,4,0.65,0,0.0,4,100.0,0.7,0.24,0.0,0.0,0.7,0.24
+Overestimated,Green,31,Mildly Bullish,Bearish,4,0.65,0,0.0,4,100.0,0.74,0.31,0.0,0.0,0.74,0.31
+Overestimated,Green,32,Bullish,Mildly Bearish,3,0.49,0,0.0,3,100.0,0.87,0.16,0.0,0.0,0.87,0.16
+Overestimated,Green,33,Strong Bearish,Neutral,3,0.49,0,0.0,3,100.0,0.65,0.25,0.0,0.0,0.65,0.25
+Overestimated,Green,34,Strong Bullish,Strong Bearish,3,0.49,0,0.0,3,100.0,0.87,0.3,0.0,0.0,0.87,0.3
+Overestimated,Green,35,Bearish,Mildly Bearish,3,0.49,0,0.0,3,100.0,0.54,0.33,0.0,0.0,0.54,0.33
+Overestimated,Green,36,Mildly Bearish,Bullish,3,0.49,0,0.0,3,100.0,0.57,0.18,0.0,0.0,0.57,0.18
+Overestimated,Green,37,Strong Bearish,Mildly Bearish,2,0.33,0,0.0,2,100.0,0.7,0.23,0.0,0.0,0.7,0.23
+Overestimated,Green,38,Bullish,Bearish,2,0.33,0,0.0,2,100.0,1.17,0.22,0.0,0.0,1.17,0.22
+Overestimated,Green,39,Strong Bullish,Bearish,2,0.33,0,0.0,2,100.0,0.57,0.18,0.0,0.0,0.57,0.18
+Overestimated,Green,40,Strong Bullish,Neutral,2,0.33,0,0.0,2,100.0,0.78,0.34,0.0,0.0,0.78,0.34
+Overestimated,Green,41,Mildly Bearish,Mildly Bullish,2,0.33,0,0.0,2,100.0,0.88,0.48,0.0,0.0,0.88,0.48
+Overestimated,Green,42,Bullish,Mildly Bullish,1,0.16,0,0.0,1,100.0,0.69,0.18,0.0,0.0,0.69,0.18
+Overestimated,Green,43,Mildly Bullish,Mildly Bearish,1,0.16,0,0.0,1,100.0,0.82,0.66,0.0,0.0,0.82,0.66
+Overestimated,Green,44,Bearish,Mildly Bullish,1,0.16,0,0.0,1,100.0,1.22,0.68,0.0,0.0,1.22,0.68
+Overestimated,Green,45,Strong Bearish,Strong Bullish,1,0.16,0,0.0,1,100.0,0.79,0.7,0.0,0.0,0.79,0.7
+Overestimated,Green,46,Strong Bullish,Mildly Bearish,1,0.16,0,0.0,1,100.0,0.45,0.06,0.0,0.0,0.45,0.06
+Overestimated,Green,47,Strong Bullish,Mildly Bullish,1,0.16,0,0.0,1,100.0,0.78,0.38,0.0,0.0,0.78,0.38
+Overestimated,Green,48,Strong Bearish,Bullish,1,0.16,0,0.0,1,100.0,1.1,0.51,0.0,0.0,1.1,0.51
+Overestimated,Red,1,Neutral,Neutral,77,12.92,77,100.0,0,0.0,0.85,-0.33,0.85,-0.33,0.0,0.0
+Overestimated,Red,2,Bullish,Strong Bullish,67,11.24,67,100.0,0,0.0,0.76,-0.39,0.76,-0.39,0.0,0.0
+Overestimated,Red,3,Bearish,Strong Bearish,44,7.38,44,100.0,0,0.0,0.84,-0.36,0.84,-0.36,0.0,0.0
+Overestimated,Red,4,Strong Bearish,Strong Bearish,37,6.21,37,100.0,0,0.0,0.82,-0.36,0.82,-0.36,0.0,0.0
+Overestimated,Red,5,Neutral,Strong Bearish,36,6.04,36,100.0,0,0.0,0.77,-0.36,0.77,-0.36,0.0,0.0
+Overestimated,Red,6,Neutral,Strong Bullish,35,5.87,35,100.0,0,0.0,0.82,-0.41,0.82,-0.41,0.0,0.0
+Overestimated,Red,7,Neutral,Bearish,28,4.7,28,100.0,0,0.0,0.81,-0.36,0.81,-0.36,0.0,0.0
+Overestimated,Red,8,Neutral,Bullish,27,4.53,27,100.0,0,0.0,0.77,-0.35,0.77,-0.35,0.0,0.0
+Overestimated,Red,9,Neutral,Mildly Bearish,24,4.03,24,100.0,0,0.0,0.93,-0.4,0.93,-0.4,0.0,0.0
+Overestimated,Red,10,Strong Bullish,Strong Bullish,23,3.86,23,100.0,0,0.0,0.72,-0.33,0.72,-0.33,0.0,0.0
+Overestimated,Red,11,Mildly Bullish,Strong Bullish,21,3.52,21,100.0,0,0.0,0.76,-0.42,0.76,-0.42,0.0,0.0
+Overestimated,Red,12,Mildly Bearish,Strong Bearish,17,2.85,17,100.0,0,0.0,0.86,-0.45,0.86,-0.45,0.0,0.0
+Overestimated,Red,13,Bearish,Bearish,15,2.52,15,100.0,0,0.0,0.84,-0.41,0.84,-0.41,0.0,0.0
+Overestimated,Red,14,Mildly Bearish,Bearish,14,2.35,14,100.0,0,0.0,0.87,-0.32,0.87,-0.32,0.0,0.0
+Overestimated,Red,15,Neutral,Mildly Bullish,14,2.35,14,100.0,0,0.0,1.02,-0.47,1.02,-0.47,0.0,0.0
+Overestimated,Red,16,Mildly Bullish,Bullish,12,2.01,12,100.0,0,0.0,0.86,-0.45,0.86,-0.45,0.0,0.0
+Overestimated,Red,17,Bullish,Bullish,10,1.68,10,100.0,0,0.0,0.86,-0.5,0.86,-0.5,0.0,0.0
+Overestimated,Red,18,Bearish,Neutral,10,1.68,10,100.0,0,0.0,0.97,-0.6,0.97,-0.6,0.0,0.0
+Overestimated,Red,19,Mildly Bullish,Neutral,8,1.34,8,100.0,0,0.0,0.91,-0.49,0.91,-0.49,0.0,0.0
+Overestimated,Red,20,Bullish,Strong Bearish,8,1.34,8,100.0,0,0.0,0.67,-0.27,0.67,-0.27,0.0,0.0
+Overestimated,Red,21,Bullish,Neutral,7,1.17,7,100.0,0,0.0,0.83,-0.31,0.83,-0.31,0.0,0.0
+Overestimated,Red,22,Bearish,Strong Bullish,5,0.84,5,100.0,0,0.0,0.77,-0.18,0.77,-0.18,0.0,0.0
+Overestimated,Red,23,Strong Bearish,Bearish,5,0.84,5,100.0,0,0.0,0.89,-0.4,0.89,-0.4,0.0,0.0
+Overestimated,Red,24,Mildly Bullish,Strong Bearish,5,0.84,5,100.0,0,0.0,0.81,-0.42,0.81,-0.42,0.0,0.0
+Overestimated,Red,25,Bullish,Mildly Bearish,5,0.84,5,100.0,0,0.0,0.88,-0.51,0.88,-0.51,0.0,0.0
+Overestimated,Red,26,Mildly Bullish,Bearish,4,0.67,4,100.0,0,0.0,0.59,-0.23,0.59,-0.23,0.0,0.0
+Overestimated,Red,27,Mildly Bearish,Neutral,4,0.67,4,100.0,0,0.0,1.07,-0.56,1.07,-0.56,0.0,0.0
+Overestimated,Red,28,Bullish,Mildly Bullish,4,0.67,4,100.0,0,0.0,0.58,-0.22,0.58,-0.22,0.0,0.0
+Overestimated,Red,29,Bearish,Mildly Bearish,4,0.67,4,100.0,0,0.0,0.71,-0.32,0.71,-0.32,0.0,0.0
+Overestimated,Red,30,Strong Bullish,Neutral,4,0.67,4,100.0,0,0.0,0.49,-0.18,0.49,-0.18,0.0,0.0
+Overestimated,Red,31,Strong Bullish,Strong Bearish,3,0.5,3,100.0,0,0.0,0.71,-0.17,0.71,-0.17,0.0,0.0
+Overestimated,Red,32,Strong Bearish,Mildly Bearish,3,0.5,3,100.0,0,0.0,0.91,-0.47,0.91,-0.47,0.0,0.0
+Overestimated,Red,33,Strong Bearish,Neutral,3,0.5,3,100.0,0,0.0,0.86,-0.25,0.86,-0.25,0.0,0.0
+Overestimated,Red,34,Mildly Bullish,Mildly Bullish,2,0.34,2,100.0,0,0.0,0.95,-0.82,0.95,-0.82,0.0,0.0
+Overestimated,Red,35,Strong Bullish,Mildly Bullish,2,0.34,2,100.0,0,0.0,0.88,-0.53,0.88,-0.53,0.0,0.0
+Overestimated,Red,36,Bearish,Mildly Bullish,2,0.34,2,100.0,0,0.0,0.53,-0.2,0.53,-0.2,0.0,0.0
+Overestimated,Red,37,Strong Bearish,Strong Bullish,2,0.34,2,100.0,0,0.0,0.78,-0.36,0.78,-0.36,0.0,0.0
+Overestimated,Red,38,Mildly Bearish,Mildly Bearish,1,0.17,1,100.0,0,0.0,1.21,-0.94,1.21,-0.94,0.0,0.0
+Overestimated,Red,39,Strong Bullish,Bullish,1,0.17,1,100.0,0,0.0,0.95,-0.32,0.95,-0.32,0.0,0.0
+Overestimated,Red,40,Strong Bullish,Bearish,1,0.17,1,100.0,0,0.0,0.78,-0.32,0.78,-0.32,0.0,0.0
+Overestimated,Red,41,Mildly Bearish,Bullish,1,0.17,1,100.0,0,0.0,0.3,-0.02,0.3,-0.02,0.0,0.0
+Overestimated,Red,42,Bullish,Bearish,1,0.17,1,100.0,0,0.0,0.67,-0.05,0.67,-0.05,0.0,0.0
+Underestimated,Green,1,Neutral,Neutral,16,14.04,0,0.0,16,100.0,1.63,0.91,0.0,0.0,1.63,0.91
+Underestimated,Green,2,Neutral,Strong Bearish,10,8.77,0,0.0,10,100.0,1.73,1.13,0.0,0.0,1.73,1.13
+Underestimated,Green,3,Neutral,Bearish,8,7.02,0,0.0,8,100.0,1.73,0.82,0.0,0.0,1.73,0.82
+Underestimated,Green,4,Bearish,Strong Bearish,7,6.14,0,0.0,7,100.0,1.66,0.96,0.0,0.0,1.66,0.96
+Underestimated,Green,5,Neutral,Strong Bullish,6,5.26,0,0.0,6,100.0,1.92,1.22,0.0,0.0,1.92,1.22
+Underestimated,Green,6,Bullish,Strong Bullish,6,5.26,0,0.0,6,100.0,1.57,0.92,0.0,0.0,1.57,0.92
+Underestimated,Green,7,Mildly Bearish,Strong Bearish,6,5.26,0,0.0,6,100.0,1.84,1.0,0.0,0.0,1.84,1.0
+Underestimated,Green,8,Strong Bullish,Strong Bullish,5,4.39,0,0.0,5,100.0,1.61,1.0,0.0,0.0,1.61,1.0
+Underestimated,Green,9,Strong Bearish,Strong Bearish,5,4.39,0,0.0,5,100.0,1.99,0.97,0.0,0.0,1.99,0.97
+Underestimated,Green,10,Neutral,Mildly Bullish,4,3.51,0,0.0,4,100.0,1.66,1.0,0.0,0.0,1.66,1.0
+Underestimated,Green,11,Neutral,Bullish,4,3.51,0,0.0,4,100.0,2.16,1.69,0.0,0.0,2.16,1.69
+Underestimated,Green,12,Mildly Bullish,Strong Bullish,3,2.63,0,0.0,3,100.0,1.99,1.19,0.0,0.0,1.99,1.19
+Underestimated,Green,13,Neutral,Mildly Bearish,3,2.63,0,0.0,3,100.0,1.83,0.74,0.0,0.0,1.83,0.74
+Underestimated,Green,14,Bearish,Bearish,3,2.63,0,0.0,3,100.0,1.64,1.34,0.0,0.0,1.64,1.34
+Underestimated,Green,15,Mildly Bullish,Bullish,3,2.63,0,0.0,3,100.0,1.66,0.89,0.0,0.0,1.66,0.89
+Underestimated,Green,16,Mildly Bearish,Bearish,3,2.63,0,0.0,3,100.0,1.67,0.75,0.0,0.0,1.67,0.75
+Underestimated,Green,17,Bullish,Mildly Bullish,3,2.63,0,0.0,3,100.0,1.54,1.13,0.0,0.0,1.54,1.13
+Underestimated,Green,18,Bearish,Bullish,2,1.75,0,0.0,2,100.0,2.52,1.56,0.0,0.0,2.52,1.56
+Underestimated,Green,19,Bullish,Strong Bearish,2,1.75,0,0.0,2,100.0,1.66,0.9,0.0,0.0,1.66,0.9
+Underestimated,Green,20,Bullish,Bullish,2,1.75,0,0.0,2,100.0,1.64,1.42,0.0,0.0,1.64,1.42
+Underestimated,Green,21,Strong Bearish,Bullish,2,1.75,0,0.0,2,100.0,1.96,1.25,0.0,0.0,1.96,1.25
+Underestimated,Green,22,Bearish,Mildly Bearish,2,1.75,0,0.0,2,100.0,1.32,0.75,0.0,0.0,1.32,0.75
+Underestimated,Green,23,Mildly Bullish,Mildly Bullish,2,1.75,0,0.0,2,100.0,1.48,1.29,0.0,0.0,1.48,1.29
+Underestimated,Green,24,Mildly Bullish,Mildly Bearish,1,0.88,0,0.0,1,100.0,2.29,0.66,0.0,0.0,2.29,0.66
+Underestimated,Green,25,Mildly Bullish,Neutral,1,0.88,0,0.0,1,100.0,2.15,0.43,0.0,0.0,2.15,0.43
+Underestimated,Green,26,Mildly Bearish,Strong Bullish,1,0.88,0,0.0,1,100.0,1.61,0.62,0.0,0.0,1.61,0.62
+Underestimated,Green,27,Mildly Bearish,Mildly Bullish,1,0.88,0,0.0,1,100.0,2.32,2.05,0.0,0.0,2.32,2.05
+Underestimated,Green,28,Bearish,Strong Bullish,1,0.88,0,0.0,1,100.0,1.59,0.81,0.0,0.0,1.59,0.81
+Underestimated,Green,29,Strong Bullish,Bearish,1,0.88,0,0.0,1,100.0,1.63,1.3,0.0,0.0,1.63,1.3
+Underestimated,Green,30,Strong Bullish,Mildly Bullish,1,0.88,0,0.0,1,100.0,2.78,1.87,0.0,0.0,2.78,1.87
+Underestimated,Red,1,Neutral,Neutral,23,14.02,23,100.0,0,0.0,2.06,-1.38,2.06,-1.38,0.0,0.0
+Underestimated,Red,2,Bearish,Strong Bearish,12,7.32,12,100.0,0,0.0,1.78,-1.05,1.78,-1.05,0.0,0.0
+Underestimated,Red,3,Bullish,Strong Bullish,12,7.32,12,100.0,0,0.0,1.6,-1.16,1.6,-1.16,0.0,0.0
+Underestimated,Red,4,Neutral,Bearish,11,6.71,11,100.0,0,0.0,1.99,-1.35,1.99,-1.35,0.0,0.0
+Underestimated,Red,5,Strong Bearish,Strong Bearish,11,6.71,11,100.0,0,0.0,1.6,-0.96,1.6,-0.96,0.0,0.0
+Underestimated,Red,6,Neutral,Bullish,10,6.1,10,100.0,0,0.0,1.96,-1.09,1.96,-1.09,0.0,0.0
+Underestimated,Red,7,Mildly Bearish,Strong Bearish,8,4.88,8,100.0,0,0.0,2.16,-1.44,2.16,-1.44,0.0,0.0
+Underestimated,Red,8,Neutral,Mildly Bearish,7,4.27,7,100.0,0,0.0,2.09,-1.45,2.09,-1.45,0.0,0.0
+Underestimated,Red,9,Strong Bullish,Strong Bullish,6,3.66,6,100.0,0,0.0,2.56,-1.55,2.56,-1.55,0.0,0.0
+Underestimated,Red,10,Mildly Bullish,Strong Bullish,6,3.66,6,100.0,0,0.0,1.89,-1.3,1.89,-1.3,0.0,0.0
+Underestimated,Red,11,Neutral,Strong Bullish,6,3.66,6,100.0,0,0.0,2.0,-1.24,2.0,-1.24,0.0,0.0
+Underestimated,Red,12,Neutral,Mildly Bullish,5,3.05,5,100.0,0,0.0,2.51,-2.09,2.51,-2.09,0.0,0.0
+Underestimated,Red,13,Mildly Bearish,Neutral,5,3.05,5,100.0,0,0.0,1.79,-0.94,1.79,-0.94,0.0,0.0
+Underestimated,Red,14,Neutral,Strong Bearish,5,3.05,5,100.0,0,0.0,1.47,-0.91,1.47,-0.91,0.0,0.0
+Underestimated,Red,15,Mildly Bullish,Bullish,4,2.44,4,100.0,0,0.0,1.92,-1.27,1.92,-1.27,0.0,0.0
+Underestimated,Red,16,Mildly Bearish,Bearish,4,2.44,4,100.0,0,0.0,1.61,-0.65,1.61,-0.65,0.0,0.0
+Underestimated,Red,17,Strong Bearish,Neutral,3,1.83,3,100.0,0,0.0,1.68,-1.15,1.68,-1.15,0.0,0.0
+Underestimated,Red,18,Bearish,Bearish,3,1.83,3,100.0,0,0.0,1.63,-1.48,1.63,-1.48,0.0,0.0
+Underestimated,Red,19,Mildly Bullish,Neutral,3,1.83,3,100.0,0,0.0,1.81,-1.4,1.81,-1.4,0.0,0.0
+Underestimated,Red,20,Mildly Bearish,Bullish,3,1.83,3,100.0,0,0.0,1.47,-0.62,1.47,-0.62,0.0,0.0
+Underestimated,Red,21,Mildly Bullish,Bearish,2,1.22,2,100.0,0,0.0,1.7,-1.1,1.7,-1.1,0.0,0.0
+Underestimated,Red,22,Bullish,Bullish,2,1.22,2,100.0,0,0.0,1.84,-0.88,1.84,-0.88,0.0,0.0
+Underestimated,Red,23,Bearish,Neutral,2,1.22,2,100.0,0,0.0,2.4,-1.78,2.4,-1.78,0.0,0.0
+Underestimated,Red,24,Bearish,Mildly Bearish,2,1.22,2,100.0,0,0.0,1.93,-1.37,1.93,-1.37,0.0,0.0
+Underestimated,Red,25,Strong Bearish,Strong Bullish,2,1.22,2,100.0,0,0.0,1.46,-0.66,1.46,-0.66,0.0,0.0
+Underestimated,Red,26,Mildly Bullish,Strong Bearish,1,0.61,1,100.0,0,0.0,1.31,-0.92,1.31,-0.92,0.0,0.0
+Underestimated,Red,27,Bearish,Bullish,1,0.61,1,100.0,0,0.0,1.57,-1.12,1.57,-1.12,0.0,0.0
+Underestimated,Red,28,Mildly Bearish,Strong Bullish,1,0.61,1,100.0,0,0.0,2.21,-1.37,2.21,-1.37,0.0,0.0
+Underestimated,Red,29,Mildly Bearish,Mildly Bullish,1,0.61,1,100.0,0,0.0,2.95,-2.35,2.95,-2.35,0.0,0.0
+Underestimated,Red,30,Bullish,Strong Bearish,1,0.61,1,100.0,0,0.0,1.42,-0.83,1.42,-0.83,0.0,0.0
+Underestimated,Red,31,Strong Bullish,Mildly Bullish,1,0.61,1,100.0,0,0.0,1.54,-1.36,1.54,-1.36,0.0,0.0
+Underestimated,Red,32,Mildly Bullish,Mildly Bearish,1,0.61,1,100.0,0,0.0,1.79,-1.49,1.79,-1.49,0.0,0.0
