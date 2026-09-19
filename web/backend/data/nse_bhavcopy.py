@@ -40,16 +40,27 @@ def _url_for(exchange: str, dt: date) -> str:
 
 async def fetch_bhavcopy(exchange: str, dt: date) -> Optional[list[dict]]:
     """Download and parse one day's F&O bhavcopy. Returns None if unavailable
-    (weekend / holiday / URL not published yet)."""
+    (weekend / holiday / URL not published yet / origin blocked us).
+
+    NSE archives can be picky about missing headers; a Referer sourced from
+    nseindia.com plus a browser-like User-Agent unblocks most cloud hosts.
+    """
     url = _url_for(exchange, dt)
+    headers = {
+        "User-Agent": _UA,
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": "https://www.nseindia.com/all-reports-derivatives" if exchange == "NSE"
+                   else "https://www.bseindia.com/",
+    }
     try:
-        async with httpx.AsyncClient(timeout=30) as client:
-            resp = await client.get(url, headers={"User-Agent": _UA, "Accept": "*/*"})
+        async with httpx.AsyncClient(timeout=60, follow_redirects=True) as client:
+            resp = await client.get(url, headers=headers)
     except httpx.HTTPError as e:
-        logger.debug(f"Bhavcopy fetch error {url}: {e}")
+        logger.warning(f"Bhavcopy fetch error {url}: {e}")
         return None
     if resp.status_code != 200 or not resp.content:
-        logger.debug(f"Bhavcopy fetch {url} → HTTP {resp.status_code}")
+        logger.warning(f"Bhavcopy fetch {url} → HTTP {resp.status_code}")
         return None
     try:
         with zipfile.ZipFile(io.BytesIO(resp.content)) as zf:

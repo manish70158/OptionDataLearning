@@ -77,6 +77,39 @@ async def get_data_status():
     return stats
 
 
+@router.get("/data/probe-bhavcopy")
+async def probe_bhavcopy(underlying: str = "NIFTY", dt: str = ""):
+    """Diagnostic: fetch a single day's bhavcopy and report the HTTP status /
+    row count without inserting anything. Helps debug 502s and NSE blocks."""
+    from datetime import date as _date
+    from web.backend.data.nse_bhavcopy import _url_for, fetch_and_parse, business_days as _bd
+    if not dt:
+        # Default to the most recent business day
+        recent = _bd(_date.today().replace(day=1), _date.today())
+        target = recent[-1] if recent else _date.today()
+    else:
+        target = _date.fromisoformat(dt)
+    exchange = "BSE" if underlying == "SENSEX" else "NSE"
+    url = _url_for(exchange, target)
+    try:
+        rows = await fetch_and_parse(target, {underlying})
+        return {
+            "url": url,
+            "date": target.isoformat(),
+            "underlying": underlying,
+            "rows_matched": len(rows),
+            "ok": len(rows) > 0,
+        }
+    except Exception as e:
+        return {
+            "url": url,
+            "date": target.isoformat(),
+            "underlying": underlying,
+            "error": str(e),
+            "ok": False,
+        }
+
+
 @router.post("/data/backfill-bhavcopy", status_code=202)
 async def backfill_bhavcopy(request: SyncRequest):
     """Backfill historical option premiums from NSE/BSE bhavcopy CSVs.
@@ -118,7 +151,14 @@ async def backfill_bhavcopy(request: SyncRequest):
 
             for i, dt in enumerate(dates):
                 dt_str = dt.isoformat()
-                rows = await fetch_and_parse(dt, {underlying})
+                # Yield to the event loop between days so status polls stay
+                # responsive even on constrained hosts (Render 512MB free).
+                await asyncio.sleep(0)
+                try:
+                    rows = await fetch_and_parse(dt, {underlying})
+                except Exception as e:
+                    logger.warning(f"Bhavcopy fetch failed for {dt_str}: {e}")
+                    rows = []
                 if rows:
                     premium_rows = []
                     for r in rows:
@@ -151,6 +191,11 @@ async def backfill_bhavcopy(request: SyncRequest):
                         })
                     await insert_option_premiums_batch(premium_rows)
                     total_rows += len(premium_rows)
+                    # Release the parsed rows before starting the intraday loop
+                    # so the biggest allocation drops out of scope on 512MB hosts.
+                    rows_len = len(rows)
+                    rows = None
+                    await asyncio.sleep(0)
 
                     # --- Prefetch index intraday + real 5-min for ATM ± window ---
                     if upstox_ok:
@@ -229,10 +274,11 @@ async def backfill_bhavcopy(request: SyncRequest):
                                     )
 
                 pct = int((i + 1) / total * 100)
+                daily_rows_this_day = rows_len if 'rows_len' in locals() else 0
                 tasks.update_task(
                     task_id, status="running", progress=pct,
                     result={"message": (
-                        f"{dt}: {len(rows)} daily rows | intraday cached: "
+                        f"{dt}: {daily_rows_this_day} daily rows | intraday cached: "
                         f"{intraday_fetched} ok, {intraday_failed} skipped"
                     )},
                 )
