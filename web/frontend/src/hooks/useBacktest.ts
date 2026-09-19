@@ -59,6 +59,17 @@ export function useBacktest() {
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncProgress, setSyncProgress] = useState(0);
   const [syncingUnderlying, setSyncingUnderlying] = useState<string | null>(null);
+  // Data source for the "Catch up" flow. Bhavcopy is the default because it
+  // works for expired weeklies too and doesn't need a live Upstox token; the
+  // Upstox live-master path is retained as an opt-in for edge cases.
+  const [dataSource, setDataSource] = useState<'bhavcopy' | 'upstox'>(() => {
+    const saved = typeof window !== 'undefined' ? window.localStorage.getItem('dataSource') : null;
+    return saved === 'upstox' ? 'upstox' : 'bhavcopy';
+  });
+  const updateDataSource = useCallback((src: 'bhavcopy' | 'upstox') => {
+    setDataSource(src);
+    if (typeof window !== 'undefined') window.localStorage.setItem('dataSource', src);
+  }, []);
   const pollRef = useRef<number | null>(null);
 
   const fetchDataStatus = useCallback(async () => {
@@ -208,8 +219,12 @@ export function useBacktest() {
       start = d.toISOString().split('T')[0];
     }
     if (start > today) return; // already up to date
-    await syncRange(underlying, start, today);
-  }, [syncRange]);
+    if (dataSource === 'bhavcopy') {
+      await startBhavcopyBackfill(underlying, start, today);
+    } else {
+      await syncRange(underlying, start, today);
+    }
+  }, [syncRange, startBhavcopyBackfill, dataSource]);
 
   const catchUpAll = useCallback(async () => {
     for (const u of ['NIFTY', 'BANKNIFTY', 'SENSEX']) {
@@ -242,6 +257,8 @@ export function useBacktest() {
     isSyncing,
     syncProgress,
     syncingUnderlying,
+    dataSource,
+    setDataSource: updateDataSource,
     startBacktest,
     startSync,
     startBhavcopyBackfill,

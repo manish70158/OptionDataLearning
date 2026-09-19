@@ -126,6 +126,8 @@ export default function Backtest() {
     startBhavcopyBackfill,
     catchUpUnderlying,
     catchUpAll,
+    dataSource,
+    setDataSource,
     fetchDataStatus,
     saveBacktest,
   } = useBacktest();
@@ -228,8 +230,32 @@ export default function Backtest() {
               </div>
             );
           })}
-          <div style={{ marginTop: '6px', color: '#666', fontSize: '11px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span>Cache: {dataStatus?.cache_size_mb ?? 0} MB · sync range: ATM ± 2 strikes</span>
+          <div style={{ marginTop: '6px', color: '#94a3b8', fontSize: '11px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span>Cache: {dataStatus?.cache_size_mb ?? 0} MB</span>
+              <span style={{ color: '#4b5563' }}>·</span>
+              <span>Source:</span>
+              <label style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}>
+                <input
+                  type="radio"
+                  name="data-source"
+                  checked={dataSource === 'bhavcopy'}
+                  onChange={() => setDataSource('bhavcopy')}
+                  disabled={isSyncing}
+                />
+                Bhavcopy
+              </label>
+              <label style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}>
+                <input
+                  type="radio"
+                  name="data-source"
+                  checked={dataSource === 'upstox'}
+                  onChange={() => setDataSource('upstox')}
+                  disabled={isSyncing}
+                />
+                Upstox
+              </label>
+            </div>
             <button
               style={{ ...styles.syncBtn, marginLeft: 0, backgroundColor: showCustom ? '#334155' : '#3b82f6' }}
               onClick={() => setShowCustom((v) => !v)}
@@ -273,17 +299,18 @@ export default function Backtest() {
                 <button
                   style={isSyncing ? styles.syncBtnDisabled : styles.syncBtn}
                   disabled={isSyncing || !customStart || !customEnd || customStart >= customEnd}
-                  onClick={() => startSync(customUnderlying, customStart, customEnd)}
+                  onClick={() => startBhavcopyBackfill(customUnderlying, customStart, customEnd)}
+                  title="Load daily OHLC for every option contract that traded in the range — includes already-expired weeklies (via NSE/BSE bhavcopy). Recommended."
                 >
-                  Fetch (Upstox)
+                  Fetch (Bhavcopy)
                 </button>
                 <button
-                  style={isSyncing ? styles.syncBtnDisabled : { ...styles.syncBtn, backgroundColor: '#7c3aed' }}
+                  style={isSyncing ? styles.syncBtnDisabled : { ...styles.syncBtn, backgroundColor: '#475569' }}
                   disabled={isSyncing || !customStart || !customEnd || customStart >= customEnd}
-                  onClick={() => startBhavcopyBackfill(customUnderlying, customStart, customEnd)}
-                  title="Load daily OHLC for every option contract that traded in the range — includes already-expired weeklies (via NSE/BSE bhavcopy)."
+                  onClick={() => startSync(customUnderlying, customStart, customEnd)}
+                  title="Fetch via Upstox live-instruments master. Only covers the current-forward weekly for historical dates."
                 >
-                  Backfill (Bhavcopy)
+                  Fetch (Upstox)
                 </button>
               </div>
               <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
@@ -315,16 +342,23 @@ export default function Backtest() {
                       const e = end.toISOString().split('T')[0];
                       setCustomStart(s);
                       setCustomEnd(e);
-                      startSync(customUnderlying, s, e);
+                      // Presets honour the active data source preference.
+                      if (dataSource === 'bhavcopy') {
+                        startBhavcopyBackfill(customUnderlying, s, e);
+                      } else {
+                        startSync(customUnderlying, s, e);
+                      }
                     }}
-                    title={`Sync last ${label} of ${customUnderlying}`}
+                    title={`Fetch last ${label} of ${customUnderlying} via ${dataSource === 'bhavcopy' ? 'bhavcopy' : 'Upstox'}`}
                   >
                     Last {label}
                   </button>
                 ))}
               </div>
               <div style={{ marginTop: '8px', color: '#64748b', fontSize: '10px' }}>
-                Note: incremental — dates already in cache are skipped. Option-premium sync always re-runs for each requested day. Rate-limited at 250 ms per call.
+                {dataSource === 'bhavcopy'
+                  ? 'Bhavcopy (default): pulls all strikes’ daily OHLC per contract + real 5-min intraday for ATM ± 5 across the two nearest expiries. Works for expired contracts. Only needs Upstox for intraday step.'
+                  : 'Upstox live-master: only fetches the current-forward weekly for each day (ATM ± 2 strikes). Fast but historical dates roll to the wrong expiry — use bhavcopy for anything older than a week.'}
               </div>
             </div>
           )}
