@@ -300,9 +300,14 @@ const TradeLog: React.FC<TradeLogProps> = ({ trades }) => {
                             </thead>
                             <tbody>
                               {trade.legs!.map((leg, legIndex) => {
-                                const legPnlPoints = leg.position === 'buy'
+                                const grossPoints = leg.position === 'buy'
                                   ? (leg.exit_premium - leg.entry_premium) * leg.lots
                                   : (leg.entry_premium - leg.exit_premium) * leg.lots;
+                                // Backend deducts 2 pts × lot_size per leg as slippage
+                                // (independent of leg.lots). Reflect that here so the
+                                // sum of Leg P&L ties out to the trade's total P&L.
+                                const SLIPPAGE_POINTS_PER_LEG = 2;
+                                const legPnlPoints = grossPoints - SLIPPAGE_POINTS_PER_LEG;
                                 const legPnlInr = legPnlPoints * lotSize;
 
                                 return (
@@ -329,7 +334,7 @@ const TradeLog: React.FC<TradeLogProps> = ({ trades }) => {
                                     }}>
                                       ₹{legPnlInr.toFixed(2)}
                                       <div style={{ fontSize: '10px', color: '#888', fontWeight: 'normal' }}>
-                                        {legPnlPoints.toFixed(2)} pts
+                                        {grossPoints.toFixed(2)} pts − 2 slp
                                       </div>
                                     </td>
                                     <td style={{

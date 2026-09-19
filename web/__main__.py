@@ -36,10 +36,12 @@ def main():
     print("API docs at http://localhost:8000/docs")
     print("Press Ctrl+C to stop.\n")
 
+    # Render / Fly / other PaaS provide $PORT; fall back to 8000 for local dev.
+    port = int(os.environ.get("PORT", "8000"))
     uvicorn.run(
         "web.backend.main:app",
         host="0.0.0.0",
-        port=8000,
+        port=port,
         reload="--reload" in sys.argv,
     )
 

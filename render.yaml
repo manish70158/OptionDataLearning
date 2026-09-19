@@ -1,0 +1,46 @@
+# Render.com deployment blueprint.
+# Sync repo to Render → New → Blueprint → pick this file.
+#
+# After first deploy, set env vars in the Render dashboard:
+#   WEB_AUTH_USER            - basic-auth username for site access
+#   WEB_AUTH_PASS            - basic-auth password
+#   UPSTOX_API_KEY           - your Upstox app client_id
+#   UPSTOX_API_SECRET        - your Upstox app client_secret
+#   UPSTOX_REDIRECT_URI      - https://manishkumar.qzz.io/api/auth/upstox/callback
+#
+# Then hit /api/auth/upstox/authorize once a day to refresh the token.
+
+services:
+  - type: web
+    name: options-backtester
+    runtime: python
+    plan: free
+    region: singapore
+    branch: main
+    autoDeploy: true
+    buildCommand: |
+      # Install Python deps (both root and web/)
+      pip install -r requirements.txt
+      pip install -r web/requirements.txt
+      # Build the React frontend
+      cd web/frontend && npm ci && npm run build
+    startCommand: python -m web --no-browser
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: NODE_VERSION
+        value: 20
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      # Placeholders — set actual values in the Render dashboard, not in the repo.
+      - key: WEB_AUTH_USER
+        sync: false
+      - key: WEB_AUTH_PASS
+        sync: false
+      - key: UPSTOX_API_KEY
+        sync: false
+      - key: UPSTOX_API_SECRET
+        sync: false
+      - key: UPSTOX_REDIRECT_URI
+        sync: false

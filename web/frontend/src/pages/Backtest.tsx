@@ -158,8 +158,18 @@ export default function Backtest() {
 
         {/* Data sync status */}
         <div style={styles.dataStatus}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', gap: '8px', flexWrap: 'wrap' }}>
             <div style={{ fontWeight: 600, color: '#fff' }}>Data Status</div>
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <a
+                href="/api/auth/upstox/authorize"
+                target="_blank"
+                rel="noreferrer"
+                style={{ ...styles.syncBtn, textDecoration: 'none', backgroundColor: '#0ea5e9', display: 'inline-block' }}
+                title="Grant the deployed app a fresh Upstox access token (needs to be redone daily)"
+              >
+                Authorise Upstox
+              </a>
             <button
               style={isSyncing ? styles.syncBtnDisabled : styles.syncBtn}
               onClick={catchUpAll}
@@ -168,6 +178,7 @@ export default function Backtest() {
             >
               {isSyncing ? `Syncing ${syncingUnderlying ?? ''} ${syncProgress}%…` : 'Catch up all'}
             </button>
+            </div>
           </div>
           {rowsToShow.map((u) => {
             const s = (dataStatus as unknown as Record<string, { first_date?: string | null; last_date?: string | null; trading_days_count?: number } | undefined>)[u];

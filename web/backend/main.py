@@ -1,12 +1,39 @@
 """FastAPI application for the Options Backtester Web UI."""
 import os
+import logging
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from web.backend.routers import backtest, data, instruments
+from web.backend.auth import BasicAuthMiddleware
+from web.backend.routers import auth, backtest, data, instruments
 
-app = FastAPI(title="Options Backtester", version="1.0.0")
+logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """On startup, if there's a persisted Upstox token in the DB, load it
+    into the shared pricing fetcher so cold-boot requests don't 401."""
+    try:
+        from web.backend.data.cache import init_db
+        from web.backend.engine.pricing import _get_fetcher
+        await init_db()
+        fetcher = await _get_fetcher()
+        loaded = await fetcher.reload_access_token()
+        if loaded:
+            logger.info("Loaded Upstox access token from DB on startup.")
+    except Exception as e:
+        logger.warning(f"Startup Upstox token load failed: {e}")
+    yield
+
+
+app = FastAPI(title="Options Backtester", version="1.0.0", lifespan=lifespan)
+
+# Basic-auth gate for deployed environments (no-op when WEB_AUTH_USER/PASS are unset).
+app.add_middleware(BasicAuthMiddleware)
 
 # CORS for local development
 app.add_middleware(
@@ -18,6 +45,7 @@ app.add_middleware(
 )
 
 # API routers
+app.include_router(auth.router, prefix="/api")
 app.include_router(backtest.router, prefix="/api")
 app.include_router(data.router, prefix="/api")
 app.include_router(instruments.router, prefix="/api")

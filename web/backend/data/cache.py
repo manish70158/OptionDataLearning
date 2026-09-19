@@ -421,6 +421,37 @@ async def get_saved_backtest(backtest_id: str) -> Optional[dict]:
         await db.close()
 
 
+async def upsert_upstox_credentials(access_token: str, refresh_token: Optional[str] = None,
+                                     expires_at: Optional[str] = None):
+    """Store/refresh the Upstox OAuth token. Single-row table (id=1)."""
+    db = await get_db()
+    try:
+        await db.execute(
+            """INSERT INTO upstox_credentials (id, access_token, refresh_token, expires_at, updated_at)
+               VALUES (1, ?, ?, ?, ?)
+               ON CONFLICT(id) DO UPDATE SET
+                 access_token=excluded.access_token,
+                 refresh_token=excluded.refresh_token,
+                 expires_at=excluded.expires_at,
+                 updated_at=excluded.updated_at""",
+            (access_token, refresh_token, expires_at, datetime.utcnow().isoformat()),
+        )
+        await db.commit()
+    finally:
+        await db.close()
+
+
+async def get_upstox_credentials() -> Optional[dict]:
+    """Return the persisted Upstox OAuth token, or None if never authorised."""
+    db = await get_db()
+    try:
+        cursor = await db.execute("SELECT * FROM upstox_credentials WHERE id = 1")
+        row = await cursor.fetchone()
+        return dict(row) if row else None
+    finally:
+        await db.close()
+
+
 async def get_cache_stats() -> dict:
     """Get overall cache statistics."""
     db = await get_db()

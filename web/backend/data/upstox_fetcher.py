@@ -66,7 +66,12 @@ class UpstoxHistoricalFetcher:
         self._load_credentials()
 
     def _load_credentials(self):
-        """Load credentials from env vars or config file."""
+        """Load credentials from env vars or config file.
+
+        Deployed setups (Render, etc.) should set ``UPSTOX_API_KEY`` and
+        ``UPSTOX_API_SECRET`` as env vars; the access token is stored in the
+        DB via the OAuth callback and refreshed by ``reload_access_token()``.
+        """
         self.api_key = os.environ.get("UPSTOX_API_KEY")
         self.api_secret = os.environ.get("UPSTOX_API_SECRET")
         self.access_token = os.environ.get("UPSTOX_ACCESS_TOKEN")
@@ -84,6 +89,16 @@ class UpstoxHistoricalFetcher:
                 self.access_token = self.access_token or config.get("access_token")
             except (json.JSONDecodeError, IOError) as e:
                 logger.warning(f"Failed to read Upstox config: {e}")
+
+    async def reload_access_token(self) -> bool:
+        """Pull the latest access token from the DB (set by the OAuth callback).
+        Returns True if a token was loaded, False if none is persisted."""
+        from web.backend.data import cache
+        row = await cache.get_upstox_credentials()
+        if row and row.get("access_token"):
+            self.access_token = row["access_token"]
+            return True
+        return False
 
     def is_authenticated(self) -> bool:
         """Check if credentials are available."""
